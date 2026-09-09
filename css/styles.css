@@ -1,0 +1,688 @@
+/* ==========================================
+   Priority 1 Security Services - CSS Design System
+   Executive Design System UI Rules:
+   - Primary Background: Deep matte black (#0a0a0a)
+   - Dark Charcoal Card Surfaces: (#141414)
+   - Subtle Silver/Chrome Borders: (#222222)
+   - Accent Crimson Red (Primary CTA / Focus): (#d32f2f)
+   - Hover Crimson Accent: (#b71c1c)
+   - Text Colors: #f5f5f5 (Primary), #a0a0a0 (Muted)
+   - STRICTLY NO neon colors, electric blue/green, glowing borders.
+   ========================================== */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-surface: #141414;
+    --bg-surface-hover: #1c1c1c;
+    --border-subtle: #222222;
+    --border-hover: #333333;
+    --text-primary: #f5f5f5;
+    --text-muted: #a0a0a0;
+    --text-dark: #111111;
+    --accent-crimson: #d32f2f;
+    --accent-crimson-hover: #b71c1c;
+    --accent-crimson-subtle: rgba(211, 47, 47, 0.1);
+
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --container-max: 1240px;
+    --transition-fast: 0.2s ease;
+    --transition-standard: 0.3s ease;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* Reset & Base Setup */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Layout Container */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header Navigation */
+.header-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.85rem 0;
+    transition: var(--transition-standard);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand-logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--text-primary);
+}
+
+.nav-contact-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-contact-quick {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background-color: var(--bg-surface);
+    transition: var(--transition-fast);
+}
+
+.btn-contact-quick:hover {
+    border-color: var(--text-muted);
+    background-color: var(--bg-surface-hover);
+}
+
+.btn-contact-email {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .btn-contact-email {
+        display: inline-flex;
+    }
+}
+
+.nav-icon {
+    stroke: var(--accent-crimson);
+}
+
+/* Buttons System */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--accent-crimson);
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--accent-crimson-hover);
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border-color: var(--border-subtle);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    border-color: var(--text-muted);
+    background-color: var(--bg-surface-hover);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Section Scroll Offsets for Sticky Header */
+section, .card {
+    scroll-margin-top: 90px;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 3rem 0 5rem;
+    background: radial-gradient(circle at 80% 20%, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 1) 70%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (min-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 3.5rem;
+    }
+}
+
+.hero-title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.25rem;
+    }
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-trust-indicators {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 2rem;
+}
+
+@media (min-width: 576px) {
+    .hero-trust-indicators {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.trust-item svg {
+    stroke: var(--accent-crimson);
+    flex-shrink: 0;
+}
+
+/* Card Component (Form Card) */
+.card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+}
+
+.form-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.form-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Inquiry Form */
+.inquiry-form .form-group {
+    margin-bottom: 1.15rem;
+}
+
+.inquiry-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 576px) {
+    .inquiry-form .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+label {
+    display: block;
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+
+}
+
+.required {
+    color: var(--accent-crimson);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    background-color: #0a0a0a;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-crimson);
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+select.form-control option {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+.form-response-message {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    display: none;
+}
+
+.form-response-message.success {
+    display: block;
+    background-color: rgba(46, 125, 50, 0.15);
+    border: 1px solid #2e7d32;
+    color: #81c784;
+}
+
+/* Services Section */
+.services-section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-subtle);
+    background-color: var(--bg-primary);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 3.5rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 2.25rem;
+    }
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.service-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    transition: var(--transition-fast);
+}
+
+.service-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.service-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    color: var(--accent-crimson);
+}
+
+.service-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+}
+
+.service-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Why Priority 1 & FAQ Section */
+.why-us-section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-subtle);
+    background-color: var(--bg-primary);
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+    .highlights-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.highlight-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    position: relative;
+}
+
+.highlight-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-crimson);
+    margin-bottom: 1rem;
+}
+
+.highlight-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.highlight-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* FAQ Accordion */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion-item {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.accordion-header:hover {
+    background-color: var(--bg-surface-hover);
+}
+
+.accordion-icon {
+    transition: transform var(--transition-fast);
+    stroke: var(--accent-crimson);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0 1.5rem 1.25rem 1.5rem;
+    font-size: 0.925rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 0.25rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #050505;
+    border-top: 1px solid var(--border-subtle);
+    padding: 4rem 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+    }
+}
+
+.footer-logo {
+    height: 44px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-slogan {
+    font-style: italic;
+    color: var(--accent-crimson);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.footer-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    max-width: 320px;
+}
+
+.footer-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+}
+
+.footer-contact p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+}
+
+.footer-contact a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: var(--accent-crimson);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border-subtle);
+    padding: 1.5rem 0;
+    font-size: 0.825rem;
+    color: var(--text-muted);
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+    .footer-bottom-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+/* Accessibility Focus States */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--accent-crimson);
+    outline-offset: 2px;
+}
