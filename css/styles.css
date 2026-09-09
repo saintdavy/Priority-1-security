@@ -277,13 +277,20 @@ section, .card {
     }
 }
 
+.hero-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .hero-title {
-    font-size: 2.75rem;
-    font-weight: 700;
-    line-height: 1.15;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.12;
     letter-spacing: -0.02em;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {
@@ -293,11 +300,12 @@ section, .card {
 }
 
 .hero-description {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
-    color: var(--text-muted);
+    color: #a0a0a0;
     margin-bottom: 2rem;
-    max-width: 600px;
+    max-width: 580px;
+    font-weight: 400;
 }
 
 .hero-cta-group {
@@ -307,12 +315,47 @@ section, .card {
     margin-bottom: 2.5rem;
 }
 
+.hero-btn-primary {
+    background-color: var(--accent-crimson);
+    color: #ffffff;
+    border: 1px solid var(--accent-crimson);
+    font-weight: 600;
+    padding: 0.85rem 1.85rem;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all var(--transition-fast);
+}
+
+.hero-btn-primary:hover, .hero-btn-primary:focus {
+    background-color: var(--accent-crimson-hover);
+    border-color: var(--accent-crimson-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.25);
+}
+
+.hero-btn-secondary {
+    background-color: rgba(20, 20, 20, 0.8);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    font-weight: 600;
+    padding: 0.85rem 1.85rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.hero-btn-secondary:hover, .hero-btn-secondary:focus {
+    border-color: var(--text-muted);
+    background-color: var(--bg-surface-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
 .hero-trust-indicators {
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
     border-top: 1px solid var(--border-subtle);
-    padding-top: 2rem;
+    padding-top: 1.75rem;
 }
 
 @media (min-width: 576px) {
@@ -326,14 +369,26 @@ section, .card {
 .trust-item {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.875rem;
-    color: var(--text-muted);
+    gap: 0.5rem;
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: #a0a0a0;
+    letter-spacing: 0.01em;
 }
 
 .trust-item svg {
     stroke: var(--accent-crimson);
     flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-btn-primary, .hero-btn-secondary {
+        width: 100%;
+    }
 }
 
 /* Card Component (Form Card) */
